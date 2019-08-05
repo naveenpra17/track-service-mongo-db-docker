@@ -6,6 +6,8 @@ import com.stackroute.trackservice.exceptions.TrackNotAvailable;
 import com.stackroute.trackservice.exceptions.UserAlreadyExistsException;
 import com.stackroute.trackservice.service.TrackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,8 @@ import java.util.Optional;
 @RequestMapping("api/v1/")//this a class level mapping for http requests
 public class TrackController {
 
+    @Autowired
+//    @Qualifier("default")
     private TrackService trackService;
 
     public TrackController() {

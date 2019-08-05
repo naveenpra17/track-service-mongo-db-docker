@@ -6,6 +6,11 @@ import com.stackroute.trackservice.exceptions.TrackNotAvailable;
 import com.stackroute.trackservice.exceptions.UserAlreadyExistsException;
 import com.stackroute.trackservice.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +20,11 @@ import java.util.Optional;
  * this tells the dispatcher servlet that this class is a service class which has buisness logics
  */
 @Service
+@Component("default")
+@Profile("dummyservice")
+//@Qualifier("default")
+@Primary
 public class TrackServiceImpl implements TrackService {
-
     private TrackRepository trackRepository;
 
     /**POSTPOST
