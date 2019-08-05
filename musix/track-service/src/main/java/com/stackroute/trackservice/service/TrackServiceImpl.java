@@ -108,11 +108,19 @@ public class TrackServiceImpl implements TrackService {
         if(trackRepository.findById(id).isEmpty()) {
             throw new TrackNotAvailable("track not available");
         }
-        Track track=trackRepository.getOne(id);//get one reference to the given id
-        track.setTrack(trackToBeUpdated.getTrack());
-        track.setComments(trackToBeUpdated.getComments());
-        System.out.println(track);
+        trackRepository.findById(id).get().setTrack(trackToBeUpdated.getTrack());
+        trackRepository.findById(id).get().setComments(trackToBeUpdated.getComments());
+        return trackRepository.save(trackRepository.findById(id).get());
 
-        return trackRepository.save(track);
+    }
+
+    @Override
+    public List<Track> getByName(String name) throws TrackNotAvailable {
+        List<Track> trackByName=trackRepository.findByTrack(name);
+        if(trackByName.isEmpty())
+        {
+            throw new TrackNotAvailable("get by name not found");
+        }
+        return trackByName;
     }
 }

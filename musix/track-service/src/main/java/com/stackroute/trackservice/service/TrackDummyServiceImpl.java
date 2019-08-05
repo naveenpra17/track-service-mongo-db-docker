@@ -38,4 +38,9 @@ public class TrackDummyServiceImpl implements TrackService {
     public Track updateTrack(int id, Track trackToBeUpdated) throws TrackNotAvailable {
         return null;
     }
+
+    @Override
+    public List<Track> getByName(String name) throws TrackNotAvailable {
+        return null;
+    }
 }

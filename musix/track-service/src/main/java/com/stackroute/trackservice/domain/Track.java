@@ -3,9 +3,9 @@ package com.stackroute.trackservice.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 @NoArgsConstructor
 //annotation for creating no arguments constructor
 @AllArgsConstructor
@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Data
 //annotation for creating getters and setters,to override tostring(),
 //to create equals, canEquals and hashcode,
-@Entity //this tells the spring that this class is an entity class and a table is made  for this class
+@Document //this tells the spring that this class is an entity class and a table is made  for this class
 public class Track {
     @Id// this tels that this an primary attribute
     private int id;
