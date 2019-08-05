@@ -21,7 +21,7 @@ import java.util.Optional;
  */
 @Service
 @Component("default")
-@Profile("dummyservice")
+@Profile("prod")
 //@Qualifier("default")
 @Primary
 public class TrackServiceImpl implements TrackService {
