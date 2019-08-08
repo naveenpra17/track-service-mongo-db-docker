@@ -20,10 +20,7 @@ import java.util.Optional;
  * this tells the dispatcher servlet that this class is a service class which has buisness logics
  */
 @Service
-@Component("default")
-@Profile("prod")
-//@Qualifier("default")
-@Primary
+@Component
 public class TrackServiceImpl implements TrackService {
     private TrackRepository trackRepository;
 
